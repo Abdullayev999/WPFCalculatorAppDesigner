@@ -1,0 +1,99 @@
+﻿<Window x:Class="WpfСalculatorApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfСalculatorApp"
+        mc:Ignorable="d"
+        Title="Calculator" MinHeight="400" MinWidth="300" SizeChanged="Form_SizeChanged" FontSize="15" Background="#FFE6E6E6" Height="450" Width="600" Icon="/Calculator.png">
+
+    <Grid x:Name="main" Background="#FFE6E6E6">
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition  x:Name="Jurnal" Width="220"/>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel LastChildFill="True"  Grid.Column="0" >
+            <StackPanel Orientation="Horizontal"  DockPanel.Dock="Top" >
+                <Button FontWeight="Bold" HorizontalAlignment="Left" BorderThickness="0" Width="40"  FontSize="20" Content="≡"/>
+                <Label FontSize="20" FontWeight="Bold"> Обычная</Label>
+                <Image  Height="30" Source="1.png" ></Image>
+            </StackPanel>
+            <TextBox FontWeight="Bold" FontSize="40" Text="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" BorderThickness="0" DockPanel.Dock="Top" Height="100" Background="#FFE6E6E6"/>
+
+            <UniformGrid   Margin="0" Columns="5" DockPanel.Dock="Top" >
+                <Button BorderThickness="0" Margin="0" Background="#FFE6E6E6" >MC</Button>
+                <Button BorderThickness="0" Background="#FFE6E6E6" >MR</Button>
+                <Button FontWeight = "Bold"  BorderThickness="0" Margin="0" Background="#FFE6E6E6" >M+</Button>
+                <Button FontWeight = "Bold"  BorderThickness="0" Background="#FFE6E6E6" >M-</Button>
+                <Button FontWeight = "Bold"  BorderThickness="0" Background="#FFE6E6E6" >MS</Button>
+            </UniformGrid>
+            <UniformGrid   Columns="4" Rows="6">
+                <Button Content="%" BorderBrush="#FFF0F0F0" BorderThickness="1" Margin="1" Background="#FFF0F0F0"></Button>
+                <Button Content="CE" BorderBrush="#FFF0F0F0" BorderThickness="1" Margin="1" Background="#FFF0F0F0"></Button>
+                <Button Content="C" BorderBrush="#FFF0F0F0"  BorderThickness="1" Margin="1" Background="#FFF0F0F0"></Button>
+                <Button Content="⇚" BorderBrush="#FFF0F0F0" BorderThickness="1" Margin="1" Background="#FFF0F0F0"></Button>
+                <Button Content="1/x" BorderBrush="#FFF0F0F0" BorderThickness="1" Margin="1" Background="#FFF0F0F0"></Button>
+                <Button Content="x^2" BorderBrush="#FFF0F0F0" BorderThickness="1" Margin="1" Background="#FFF0F0F0"></Button>
+                <Button Content="2√x" BorderBrush="#FFF0F0F0" BorderThickness="1" Margin="1" Background="#FFF0F0F0"></Button>
+                <Button Content="÷" BorderBrush="#FFF0F0F0" BorderThickness="1" Margin="1" Background="#FFF0F0F0"></Button>
+                <Button FontWeight = "Bold"  Content="7" BorderThickness="0" Margin="1" Background="White" ></Button>
+                <Button FontWeight = "Bold"  Content="8" BorderThickness="0" Margin="1" Background="White"></Button>
+                <Button FontWeight = "Bold"  Content="9" BorderThickness="0" Margin="1" Background="White" ></Button>
+                <Button Content="x" BorderBrush="#FFF0F0F0"  Margin="1" Background="#FFF0F0F0"></Button>
+                <Button FontWeight = "Bold"  Content="4" BorderThickness="0" Margin="1" Background="White"></Button>
+                <Button FontWeight = "Bold"  Content="5" BorderThickness="0" Margin="1" Background="White"></Button>
+                <Button FontWeight = "Bold"  Content="6" BorderThickness="0" Margin="1" Background="White"></Button>
+                <Button Content="-" BorderBrush="#FFF0F0F0"  Margin="1" Background="#FFF0F0F0"></Button>
+                <Button FontWeight = "Bold"  Content="1" BorderThickness="0" Margin="1" Background="White"></Button>
+                <Button FontWeight = "Bold"  Content="2" BorderThickness="0" Margin="1" Background="White"></Button>
+                <Button FontWeight = "Bold"  Content="3" BorderThickness="0" Margin="1" Background="White"></Button>
+                <Button Content="+" BorderBrush="#FFF0F0F0" Margin="1" Background="#FFF0F0F0"></Button>
+                <Button Content="±"  BorderThickness="0" Margin="1" Background="White"></Button>
+                <Button FontWeight = "Bold"  Content="0" BorderThickness="0" Margin="1"  Background="White"></Button>
+                <Button FontWeight = "Bold" Content="," BorderThickness="0" Margin="1"  Background="White"/>
+                <Button FontWeight = "Bold" Content="=" BorderThickness="0" Margin="1" Background="#FF8ABAE0" />
+            </UniformGrid>
+        </DockPanel>
+
+        <Grid Background="#FFE6E6E6" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <UniformGrid Grid.Row="0" Columns="2">
+                <Button Click="Button_Click" Background="#FFE6E6E6" BorderBrush="#FFE6E6E6" BorderThickness="0" Content="Journal" DockPanel.Dock="Top"/>
+                <Button Click="Button_Click_1" Background="#FFE6E6E6" BorderBrush="#FFE6E6E6" BorderThickness="0" Content="Memory"/>
+            </UniformGrid>
+
+            <StackPanel  Orientation="Horizontal" Grid.Row="1">
+                <Label FontWeight="Black"  Name="JournalLabel" Padding="0"  Content="      ————"></Label>
+                <Label FontWeight="Black" Name="MemoryLabel" Padding="0" Content ="            ————"></Label>
+            </StackPanel>
+            
+            <TextBlock HorizontalAlignment="Right"  Grid.Row="2">
+                 <LineBreak/>
+                <Run Text="       99 - 2 = " Foreground="Gray" />
+                <LineBreak/> 
+                <Run FontSize="19" FontWeight="Black" Text="           97"/>
+                <LineBreak/>
+                 <LineBreak/>
+                 <Run Text="    12 + 20 =" Foreground="Gray"/>
+                 <LineBreak/>
+                <Run FontSize="19  "  FontWeight="Black" Text="           32"/>
+                <LineBreak/>
+                 <LineBreak/>
+                  <Run Text="   56 + 56 =" Foreground="Gray"/>
+                 <LineBreak/>
+                <Run FontSize="19"  FontWeight="Black" Text="          112 "/>
+                <LineBreak/>
+            </TextBlock>
+
+
+            <Button  Background="#FFE6E6E6" BorderThickness="0" Height="30" HorizontalAlignment="Right" Width="30" Grid.Row="3">🗑</Button>
+        </Grid>
+    </Grid>
+</Window>
